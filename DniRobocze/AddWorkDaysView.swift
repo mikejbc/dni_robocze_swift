@@ -30,7 +30,7 @@ struct AddWorkDaysView: View {
                             Text("Dni:")
                             Spacer()
                             TextField("0", text: $daysText)
-                                .keyboardType(.numberPad)
+                                .keyboardType(.numbersAndPunctuation)
                                 .multilineTextAlignment(.trailing)
                                 .focused($daysFieldFocused)
                                 .frame(width: 70)
@@ -81,11 +81,17 @@ struct AddWorkDaysView: View {
     }
 
     private func handleDaysInput(_ newValue: String) {
-        if newValue.isEmpty { return }
-        // numberPad only produces digits; strip anything else
-        let digits = newValue.filter { $0.isNumber }
-        if digits != newValue {
-            daysText = digits
+        if newValue.isEmpty || newValue == "-" { return }
+        // Allow only digits and a single leading minus
+        let filtered = newValue.filter { $0.isNumber || $0 == "-" }
+        let sanitized: String
+        if filtered.hasPrefix("-") {
+            sanitized = "-" + filtered.dropFirst().filter { $0.isNumber }
+        } else {
+            sanitized = filtered.filter { $0.isNumber }
+        }
+        if sanitized != newValue {
+            daysText = sanitized
             return
         }
         if let parsed = Int(newValue) {
