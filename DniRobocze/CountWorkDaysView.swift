@@ -47,8 +47,9 @@ struct CountWorkDaysView: View {
     }
 
     private func calculate() {
-        let s = Calendar(identifier: .gregorian).startOfDay(for: startDate)
-        let e = Calendar(identifier: .gregorian).startOfDay(for: endDate)
+        let cal = WorkDaysEngine.calendar
+        let s = cal.startOfDay(for: startDate)
+        let e = cal.startOfDay(for: endDate)
 
         guard s <= e else {
             result = "Data \"Od\" musi być\nwcześniejsza lub równa \"Do\""

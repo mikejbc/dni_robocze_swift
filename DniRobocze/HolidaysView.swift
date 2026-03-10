@@ -3,7 +3,6 @@ import SwiftUI
 struct HolidaysView: View {
     @State private var selectedYear: Int = Calendar.current.component(.year, from: Date())
     private let currentYear = Calendar.current.component(.year, from: Date())
-
     var holidays: [(date: Date, name: String)] {
         WorkDaysEngine.namedHolidays(for: selectedYear)
     }
@@ -16,15 +15,12 @@ struct HolidaysView: View {
         return f
     }()
 
-    private let polishDayNames = ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"]
-
     var body: some View {
         NavigationStack {
             List(holidays, id: \.date) { holiday in
                 HolidayRow(
                     holiday: holiday,
-                    dateFormatter: dateFormatter,
-                    polishDayNames: polishDayNames
+                    dateFormatter: dateFormatter
                 )
             }
             .navigationTitle("Święta \(selectedYear)")
@@ -48,15 +44,15 @@ struct HolidaysView: View {
 struct HolidayRow: View {
     let holiday: (date: Date, name: String)
     let dateFormatter: DateFormatter
-    let polishDayNames: [String]
 
     private var weekdayName: String {
-        let idx = Calendar(identifier: .gregorian).component(.weekday, from: holiday.date) - 1
-        return polishDayNames[idx]
+        let idx = WorkDaysEngine.calendar.component(.weekday, from: holiday.date) - 1
+        let names = WorkDaysEngine.polishWeekdayNames
+        return names.indices.contains(idx) ? names[idx] : ""
     }
 
     private var isWeekend: Bool {
-        let wd = Calendar(identifier: .gregorian).component(.weekday, from: holiday.date)
+        let wd = WorkDaysEngine.calendar.component(.weekday, from: holiday.date)
         return wd == 1 || wd == 7
     }
 
