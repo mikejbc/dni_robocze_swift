@@ -25,18 +25,25 @@ struct AddWorkDaysView: View {
                 }
 
                 Section("Liczba dni roboczych") {
-                    HStack {
-                        Text("Dni:")
-                        Spacer()
-                        TextField("0", text: $daysText)
-                            .keyboardType(.numbersAndPunctuation)
-                            .multilineTextAlignment(.trailing)
-                            .focused($daysFieldFocused)
-                            .frame(width: 80)
-                            .foregroundStyle(days < 0 ? .orange : .primary)
-                            .fontWeight(.semibold)
-                            .monospacedDigit()
-                            .onChange(of: daysText) { _, newValue in handleDaysInput(newValue) }
+                    Stepper(value: $days, in: -999...999) {
+                        HStack {
+                            Text("Dni:")
+                            Spacer()
+                            TextField("0", text: $daysText)
+                                .keyboardType(.numberPad)
+                                .multilineTextAlignment(.trailing)
+                                .focused($daysFieldFocused)
+                                .frame(width: 70)
+                                .foregroundStyle(days < 0 ? .orange : .primary)
+                                .fontWeight(.semibold)
+                                .monospacedDigit()
+                                .onChange(of: daysText) { _, newValue in handleDaysInput(newValue) }
+                        }
+                    }
+                    .onChange(of: days) { _, newValue in
+                        if !daysFieldFocused {
+                            daysText = "\(newValue)"
+                        }
                     }
                     Text("Ujemna wartość odejmuje dni.")
                         .font(.caption)
@@ -74,16 +81,15 @@ struct AddWorkDaysView: View {
     }
 
     private func handleDaysInput(_ newValue: String) {
-        if newValue == "-" || newValue.isEmpty { return }
+        if newValue.isEmpty { return }
+        // numberPad only produces digits; strip anything else
+        let digits = newValue.filter { $0.isNumber }
+        if digits != newValue {
+            daysText = digits
+            return
+        }
         if let parsed = Int(newValue) {
             days = min(max(parsed, -999), 999)
-        } else {
-            // Strip anything that isn't a digit or a leading minus
-            var cleaned = newValue.filter { $0.isNumber || $0 == "-" }
-            if cleaned.filter({ $0 == "-" }).count > 1 {
-                cleaned = String(cleaned.prefix(1)) + cleaned.dropFirst().filter { $0 != "-" }
-            }
-            daysText = cleaned
         }
     }
 
