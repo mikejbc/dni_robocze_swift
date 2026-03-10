@@ -8,21 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		1DAB3D9F4FE24EFA99E21356B7AE3889 /* DniRoboczeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C92CCE4C4AE4304AE434F714C8CE775 /* DniRoboczeApp.swift */; };
-		CDA1901E91D34E86B2AA638CF7240201 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA151D7B54AD4E9DA2A19CA11FE64A04 /* ContentView.swift */; };
-		C1C82EAE3F264A0B938AF59F7C3C3C2B /* WorkDaysEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B49BF7379481CA678B7FF435747F6 /* WorkDaysEngine.swift */; };
-		B81150B4A9CE40FD900DD36CC8EF8D53 /* CountWorkDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC99184850433991B15F7B5DD62BD /* CountWorkDaysView.swift */; };
 		A1077EEA6DE54A8FA28D69F5BC355607 /* AddWorkDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F5072FDD54FB9BCBD9847FD47983B /* AddWorkDaysView.swift */; };
+		B81150B4A9CE40FD900DD36CC8EF8D53 /* CountWorkDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC99184850433991B15F7B5DD62BD /* CountWorkDaysView.swift */; };
+		C1C82EAE3F264A0B938AF59F7C3C3C2B /* WorkDaysEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0B49BF7379481CA678B7FF435747F6 /* WorkDaysEngine.swift */; };
+		CDA1901E91D34E86B2AA638CF7240201 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA151D7B54AD4E9DA2A19CA11FE64A04 /* ContentView.swift */; };
 		E602B832B3864E99BCAA61AD2E016CE6 /* HolidaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628540D138ED4FF9AEE1847A1B2E4FC8 /* HolidaysView.swift */; };
+		FA1234567890ABCDEF1234567890ABCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1234567890ABCDEF1234567890ABCE /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36323001 /* DniRobocze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DniRobocze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C92CCE4C4AE4304AE434F714C8CE775 /* DniRoboczeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DniRoboczeApp.swift; sourceTree = "<group>"; };
-		DA151D7B54AD4E9DA2A19CA11FE64A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		8F0B49BF7379481CA678B7FF435747F6 /* WorkDaysEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDaysEngine.swift; sourceTree = "<group>"; };
-		C0CC99184850433991B15F7B5DD62BD /* CountWorkDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountWorkDaysView.swift; sourceTree = "<group>"; };
 		4F4F5072FDD54FB9BCBD9847FD47983B /* AddWorkDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkDaysView.swift; sourceTree = "<group>"; };
 		628540D138ED4FF9AEE1847A1B2E4FC8 /* HolidaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysView.swift; sourceTree = "<group>"; };
-		36323001 /* DniRobocze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DniRobocze.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F0B49BF7379481CA678B7FF435747F6 /* WorkDaysEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkDaysEngine.swift; sourceTree = "<group>"; };
+		C0CC99184850433991B15F7B5DD62BD /* CountWorkDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountWorkDaysView.swift; sourceTree = "<group>"; };
+		DA151D7B54AD4E9DA2A19CA11FE64A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FA1234567890ABCDEF1234567890ABCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +36,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA9876543210FEDCBA9876543210FEDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA1234567890ABCDEF1234567890ABCD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXGroup section */
 		07B0BDA7636040D4B5D4981349CEF21E /* Products */ = {
@@ -53,11 +66,12 @@
 				C0CC99184850433991B15F7B5DD62BD /* CountWorkDaysView.swift */,
 				4F4F5072FDD54FB9BCBD9847FD47983B /* AddWorkDaysView.swift */,
 				628540D138ED4FF9AEE1847A1B2E4FC8 /* HolidaysView.swift */,
+				FA1234567890ABCDEF1234567890ABCE /* Assets.xcassets */,
 			);
 			path = DniRobocze;
 			sourceTree = "<group>";
 		};
-		FCD52F862B9942CF8B6EA86DC622B93A /* Main */ = {
+		FCD52F862B9942CF8B6EA86DC622B93A = {
 			isa = PBXGroup;
 			children = (
 				16398E8C87B74EEF88ABDB3F610B1857 /* DniRobocze */,
@@ -72,6 +86,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 816E7FD408AB4473AF54F7B40DAF2891 /* Build configuration list for PBXNativeTarget "DniRobocze" */;
 			buildPhases = (
+				FA9876543210FEDCBA9876543210FEDC /* Resources */,
 				8298E573043947520ABE92D5CC103F78 /* Sources */,
 				D814B150E92645C396DF6EB0FD9D68F6 /* Frameworks */,
 			);
@@ -92,7 +107,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					0E6E2698C9F74C70B07C71D668C7EDB4 = {
 						CreatedOnToolsVersion = 15.0;
@@ -108,7 +123,7 @@
 				Base,
 				pl,
 			);
-			mainGroup = FCD52F862B9942CF8B6EA86DC622B93A /* Main */;
+			mainGroup = FCD52F862B9942CF8B6EA86DC622B93A;
 			productRefGroup = 07B0BDA7636040D4B5D4981349CEF21E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +155,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -159,6 +175,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -192,6 +209,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -202,6 +220,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -221,6 +240,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_CYCLE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -246,6 +266,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -259,13 +280,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = DTRTYYPVAT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dni Robocze";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -274,9 +298,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pl.michalkubiec.dnirobocze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -288,13 +316,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = DTRTYYPVAT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dni Robocze";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -303,24 +334,19 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pl.michalkubiec.dnirobocze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AA1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D /* Build configuration list for PBXProject "DniRobocze" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BB1C2D3E4F5A6B7C8D9E0F1A2B3C4D5E /* Debug */,
-				CC2D3E4F5A6B7C8D9E0F1A2B3C4D5E6F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		816E7FD408AB4473AF54F7B40DAF2891 /* Build configuration list for PBXNativeTarget "DniRobocze" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -330,8 +356,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		AA1B2C3D4E5F6A7B8C9D0E1F2A3B4C5D /* Build configuration list for PBXProject "DniRobocze" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB1C2D3E4F5A6B7C8D9E0F1A2B3C4D5E /* Debug */,
+				CC2D3E4F5A6B7C8D9E0F1A2B3C4D5E6F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = 83DEAE3CF42A4B5E9C1A0D02E7F5B123 /* Project object */;
 }

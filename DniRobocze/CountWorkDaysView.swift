@@ -4,7 +4,9 @@ struct CountWorkDaysView: View {
     @State private var startDate: Date = Calendar.current.startOfDay(for: Date())
     @State private var endDate: Date = Calendar.current.startOfDay(for: Date())
     @State private var result: String? = nil
+    @State private var resultCount: Int? = nil
     @State private var isError = false
+    @State private var copied = false
 
     var body: some View {
         NavigationStack {
@@ -37,6 +39,20 @@ struct CountWorkDaysView: View {
                                 .foregroundStyle(isError ? Color.red : Color.green)
                                 .multilineTextAlignment(.center)
                             Spacer()
+                            if !isError, let count = resultCount {
+                                Button {
+                                    UIPasteboard.general.string = "\(count)"
+                                    copied = true
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                        copied = false
+                                    }
+                                } label: {
+                                    Image(systemName: copied ? "checkmark" : "doc.on.doc")
+                                        .foregroundStyle(copied ? .green : .secondary)
+                                        .contentTransition(.symbolEffect(.replace))
+                                }
+                                .buttonStyle(.plain)
+                            }
                         }
                         .padding(.vertical, 8)
                     }
@@ -59,6 +75,7 @@ struct CountWorkDaysView: View {
 
         let count = WorkDaysEngine.countWorkdays(from: s, to: e)
         isError = false
+        resultCount = count
         result = "\(count) \(workdayLabel(count))"
     }
 

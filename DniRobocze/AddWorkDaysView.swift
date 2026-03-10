@@ -3,8 +3,10 @@ import SwiftUI
 struct AddWorkDaysView: View {
     @State private var startDate: Date = Calendar.current.startOfDay(for: Date())
     @State private var days: Int = 5
+    @State private var daysText: String = "5"
     @State private var result: String? = nil
     @State private var isError = false
+    @FocusState private var daysFieldFocused: Bool
 
     private static let resultFormatter: DateFormatter = {
         let f = DateFormatter()
@@ -23,15 +25,18 @@ struct AddWorkDaysView: View {
                 }
 
                 Section("Liczba dni roboczych") {
-                    Stepper(value: $days, in: -999...999) {
-                        HStack {
-                            Text("Dni:")
-                            Spacer()
-                            Text("\(days)")
-                                .foregroundStyle(days < 0 ? .orange : .primary)
-                                .fontWeight(.semibold)
-                                .monospacedDigit()
-                        }
+                    HStack {
+                        Text("Dni:")
+                        Spacer()
+                        TextField("0", text: $daysText)
+                            .keyboardType(.numbersAndPunctuation)
+                            .multilineTextAlignment(.trailing)
+                            .focused($daysFieldFocused)
+                            .frame(width: 80)
+                            .foregroundStyle(days < 0 ? .orange : .primary)
+                            .fontWeight(.semibold)
+                            .monospacedDigit()
+                            .onChange(of: daysText) { _, newValue in handleDaysInput(newValue) }
                     }
                     Text("Ujemna wartość odejmuje dni.")
                         .font(.caption)
@@ -68,7 +73,29 @@ struct AddWorkDaysView: View {
         }
     }
 
+    private func handleDaysInput(_ newValue: String) {
+        if newValue == "-" || newValue.isEmpty { return }
+        if let parsed = Int(newValue) {
+            days = min(max(parsed, -999), 999)
+        } else {
+            // Strip anything that isn't a digit or a leading minus
+            var cleaned = newValue.filter { $0.isNumber || $0 == "-" }
+            if cleaned.filter({ $0 == "-" }).count > 1 {
+                cleaned = String(cleaned.prefix(1)) + cleaned.dropFirst().filter { $0 != "-" }
+            }
+            daysText = cleaned
+        }
+    }
+
     private func calculate() {
+        daysFieldFocused = false
+
+        // Parse whatever is in the text field
+        if let parsed = Int(daysText) {
+            days = min(max(parsed, -999), 999)
+        }
+        daysText = "\(days)"
+
         let cal = WorkDaysEngine.calendar
         let s = cal.startOfDay(for: startDate)
         let resultDate = WorkDaysEngine.addWorkdays(days, to: s)
