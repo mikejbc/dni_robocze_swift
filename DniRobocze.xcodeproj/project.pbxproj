@@ -14,6 +14,9 @@
 		CDA1901E91D34E86B2AA638CF7240201 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA151D7B54AD4E9DA2A19CA11FE64A04 /* ContentView.swift */; };
 		E602B832B3864E99BCAA61AD2E016CE6 /* HolidaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628540D138ED4FF9AEE1847A1B2E4FC8 /* HolidaysView.swift */; };
 		FA1234567890ABCDEF1234567890ABCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1234567890ABCDEF1234567890ABCE /* Assets.xcassets */; };
+		F100000000000000000000000000AAA1 /* DyzuryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000000000AAA0 /* DyzuryModel.swift */; };
+		F100000000000000000000000000BBB1 /* DyzuryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000000000BBB0 /* DyzuryView.swift */; };
+		F100000000000000000000000000CCC1 /* DyzurFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100000000000000000000000000CCC0 /* DyzurFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		C0CC99184850433991B15F7B5DD62BD /* CountWorkDaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountWorkDaysView.swift; sourceTree = "<group>"; };
 		DA151D7B54AD4E9DA2A19CA11FE64A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA1234567890ABCDEF1234567890ABCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F100000000000000000000000000AAA0 /* DyzuryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyzuryModel.swift; sourceTree = "<group>"; };
+		F100000000000000000000000000BBB0 /* DyzuryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyzuryView.swift; sourceTree = "<group>"; };
+		F100000000000000000000000000CCC0 /* DyzurFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DyzurFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,9 @@
 				4F4F5072FDD54FB9BCBD9847FD47983B /* AddWorkDaysView.swift */,
 				628540D138ED4FF9AEE1847A1B2E4FC8 /* HolidaysView.swift */,
 				FA1234567890ABCDEF1234567890ABCE /* Assets.xcassets */,
+				F100000000000000000000000000AAA0 /* DyzuryModel.swift */,
+				F100000000000000000000000000BBB0 /* DyzuryView.swift */,
+				F100000000000000000000000000CCC0 /* DyzurFormView.swift */,
 			);
 			path = DniRobocze;
 			sourceTree = "<group>";
@@ -144,6 +153,9 @@
 				B81150B4A9CE40FD900DD36CC8EF8D53 /* CountWorkDaysView.swift in Sources */,
 				A1077EEA6DE54A8FA28D69F5BC355607 /* AddWorkDaysView.swift in Sources */,
 				E602B832B3864E99BCAA61AD2E016CE6 /* HolidaysView.swift in Sources */,
+				F100000000000000000000000000AAA1 /* DyzuryModel.swift in Sources */,
+				F100000000000000000000000000BBB1 /* DyzuryView.swift in Sources */,
+				F100000000000000000000000000CCC1 /* DyzurFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +295,7 @@
 				DEVELOPMENT_TEAM = DTRTYYPVAT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "Aplikacja chce dodać Twoje dyżury do kalendarza.";
 				INFOPLIST_KEY_CFBundleDisplayName = "Dni Robocze";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -319,6 +332,7 @@
 				DEVELOPMENT_TEAM = DTRTYYPVAT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "Aplikacja chce dodać Twoje dyżury do kalendarza.";
 				INFOPLIST_KEY_CFBundleDisplayName = "Dni Robocze";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
