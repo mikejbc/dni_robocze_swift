@@ -6,7 +6,13 @@ struct AddWorkDaysView: View {
     @State private var result: String? = nil
     @State private var isError = false
 
-    private let polishDayNames = ["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"]
+    private static let resultFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "pl_PL")
+        f.dateStyle = .long
+        f.timeStyle = .none
+        return f
+    }()
 
     var body: some View {
         NavigationStack {
@@ -63,17 +69,15 @@ struct AddWorkDaysView: View {
     }
 
     private func calculate() {
-        let s = Calendar(identifier: .gregorian).startOfDay(for: startDate)
+        let cal = WorkDaysEngine.calendar
+        let s = cal.startOfDay(for: startDate)
         let resultDate = WorkDaysEngine.addWorkdays(days, to: s)
 
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "pl_PL")
-        formatter.dateStyle = .long
-        formatter.timeStyle = .none
-        let dateString = formatter.string(from: resultDate)
+        let dateString = AddWorkDaysView.resultFormatter.string(from: resultDate)
 
-        let weekdayIndex = Calendar(identifier: .gregorian).component(.weekday, from: resultDate) - 1
-        let dayName = polishDayNames[weekdayIndex]
+        let weekdayIndex = cal.component(.weekday, from: resultDate) - 1
+        let names = WorkDaysEngine.polishWeekdayNames
+        let dayName = names.indices.contains(weekdayIndex) ? names[weekdayIndex] : ""
 
         isError = false
         result = "\(dateString)\n(\(dayName))"
