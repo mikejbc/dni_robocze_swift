@@ -13,6 +13,7 @@ struct WorkDaysEngine {
     ]
 
     // MARK: Easter (Meeus/Jones/Butcher algorithm)
+    // Valid for any Gregorian year. Standard reference: Jean Meeus, "Astronomical Algorithms" (1991).
 
     static func easter(year: Int) -> DateComponents {
         let a = year % 19
@@ -145,11 +146,18 @@ struct WorkDaysEngine {
         var current = cal.startOfDay(for: date)
         let step = n > 0 ? 1 : -1
         var remaining = abs(n)
-        while remaining > 0 {
+        // Safety cap: work days are at most 5/7 of calendar days, so N work days
+        // require at most ceil(N * 7/5) + 14 calendar steps. We use N * 3 + 30 as
+        // a generous upper bound that avoids an infinite loop if addingDays ever
+        // returns self (which can only happen for dates outside the representable range).
+        let maxIterations = abs(n) * 3 + 30
+        var iterations = 0
+        while remaining > 0 && iterations < maxIterations {
             current = current.addingDays(step)
             if isWorkday(current, holidayCache: &cache) {
                 remaining -= 1
             }
+            iterations += 1
         }
         return current
     }

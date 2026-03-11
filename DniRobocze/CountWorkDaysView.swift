@@ -80,15 +80,17 @@ struct CountWorkDaysView: View {
     }
 
     private func workdayLabel(_ n: Int) -> String {
-        switch n {
-        case 1:        return "dzień roboczy"
-        case 2...4:    return "dni robocze"
-        case 12...14:  return "dni roboczych"
-        default:
-            let mod = n % 10
-            if (2...4).contains(mod) { return "dni robocze" }
-            return "dni roboczych"
-        }
+        // Polish grammatical agreement rules for cardinal numbers:
+        //   1                     → "dzień roboczy"
+        //   ends in 12, 13, 14   → "dni roboczych"  (teen override)
+        //   ends in 2, 3, 4      → "dni robocze"
+        //   everything else      → "dni roboczych"
+        if n == 1 { return "dzień roboczy" }
+        let mod100 = n % 100
+        if (12...14).contains(mod100) { return "dni roboczych" }
+        let mod10 = n % 10
+        if (2...4).contains(mod10) { return "dni robocze" }
+        return "dni roboczych"
     }
 }
 

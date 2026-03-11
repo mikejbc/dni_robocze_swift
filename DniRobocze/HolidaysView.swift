@@ -7,21 +7,10 @@ struct HolidaysView: View {
         WorkDaysEngine.namedHolidays(for: selectedYear)
     }
 
-    private let dateFormatter: DateFormatter = {
-        let f = DateFormatter()
-        f.locale = Locale(identifier: "pl_PL")
-        f.dateStyle = .medium
-        f.timeStyle = .none
-        return f
-    }()
-
     var body: some View {
         NavigationStack {
             List(holidays, id: \.date) { holiday in
-                HolidayRow(
-                    holiday: holiday,
-                    dateFormatter: dateFormatter
-                )
+                HolidayRow(holiday: holiday)
             }
             .navigationTitle("Święta \(selectedYear)")
             .toolbar {
@@ -43,7 +32,14 @@ struct HolidaysView: View {
 
 struct HolidayRow: View {
     let holiday: (date: Date, name: String)
-    let dateFormatter: DateFormatter
+
+    private static let dateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "pl_PL")
+        f.dateStyle = .medium
+        f.timeStyle = .none
+        return f
+    }()
 
     private var weekdayName: String {
         let idx = WorkDaysEngine.calendar.component(.weekday, from: holiday.date) - 1
@@ -62,7 +58,7 @@ struct HolidayRow: View {
                 .font(.body)
                 .fontWeight(.medium)
             HStack(spacing: 6) {
-                Text(dateFormatter.string(from: holiday.date))
+                Text(HolidayRow.dateFormatter.string(from: holiday.date))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 Text("·")
