@@ -139,10 +139,11 @@ struct DyzurFormView: View {
     }
 
     private func createCalendarEvent(in eventStore: EKEventStore) {
+        let dyzur = Dyzur(date: selectedDate, type: selectedType)
         let event = EKEvent(eventStore: eventStore)
         event.title = selectedType.localizedName
-        event.startDate = selectedDate
-        event.endDate = selectedDate.addingTimeInterval(selectedType.duration)
+        event.startDate = dyzur.startDate
+        event.endDate = dyzur.endDate
         event.notes = "Dodano przez aplikację Dni Robocze"
         event.calendar = eventStore.defaultCalendarForNewEvents
 

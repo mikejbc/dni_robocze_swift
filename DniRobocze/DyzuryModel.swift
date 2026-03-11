@@ -8,7 +8,7 @@ enum DyzurType: String, Codable, CaseIterable {
 
     var localizedName: String {
         switch self {
-        case .weekday: return "Dyżur tygodniowy"
+        case .weekday: return "Dyżur"
         case .weekend: return "Dyżur weekendowy"
         }
     }
@@ -43,6 +43,36 @@ struct Dyzur: Identifiable, Codable {
     }
 
     var duration: TimeInterval { type.duration }
+
+    // MARK: - Calendar helpers
+
+    /// Returns the start date of the shift for calendar purposes.
+    /// - Note: For `.weekday` the shift starts at 15:00 of `date`.
+    ///         For `.weekend` the shift starts at 07:25 of `date`.
+    var startDate: Date {
+        let cal = WorkDaysEngine.calendar
+        var components = cal.dateComponents([.year, .month, .day], from: date)
+        switch type {
+        case .weekday:
+            components.hour = 15
+            components.minute = 0
+        case .weekend:
+            components.hour = 7
+            components.minute = 25
+        }
+        return cal.date(from: components) ?? date
+    }
+
+    /// Returns the end date of the shift for calendar purposes.
+    /// Both shift types end the next day at 07:25.
+    var endDate: Date {
+        let cal = WorkDaysEngine.calendar
+        let nextDay = cal.date(byAdding: .day, value: 1, to: startDate) ?? startDate
+        var components = cal.dateComponents([.year, .month, .day], from: nextDay)
+        components.hour = 7
+        components.minute = 25
+        return cal.date(from: components) ?? nextDay
+    }
 }
 
 // MARK: - Store
@@ -131,3 +161,4 @@ final class DyzuryStore {
         return lines.joined(separator: "\n")
     }
 }
+
