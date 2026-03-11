@@ -83,7 +83,7 @@ struct DyzurFormView: View {
     // MARK: - Auto-detect type
 
     private static func defaultType(for date: Date) -> DyzurType {
-        let weekday = Calendar.current.component(.weekday, from: date)
+        let weekday = WorkDaysEngine.calendar.component(.weekday, from: date)
         // weekday: 1=Sunday, 7=Saturday
         return (weekday == 1 || weekday == 7) ? .weekend : .weekday
     }
@@ -91,8 +91,7 @@ struct DyzurFormView: View {
     // MARK: - Save
 
     private func save() {
-        if isEditing {
-            var updated = existingDyzur!
+        if isEditing, var updated = existingDyzur {
             updated.date = selectedDate
             updated.type = selectedType
             store.update(updated)

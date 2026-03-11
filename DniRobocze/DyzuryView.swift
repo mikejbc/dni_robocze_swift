@@ -7,7 +7,7 @@ struct DyzuryView: View {
     @State private var showingExport = false
     @State private var csvContent = ""
 
-    private let dateFormatter: DateFormatter = {
+    private static let dateFormatter: DateFormatter = {
         let f = DateFormatter()
         f.locale = Locale(identifier: "pl_PL")
         f.dateStyle = .medium
@@ -93,7 +93,7 @@ struct DyzuryView: View {
                     .padding(.vertical, 8)
             } else {
                 ForEach(store.dyzury) { dyzur in
-                    DyzurRow(dyzur: dyzur, dateFormatter: dateFormatter)
+                    DyzurRow(dyzur: dyzur, dateFormatter: DyzuryView.dateFormatter)
                         .contentShape(Rectangle())
                         .onTapGesture { editingDyzur = dyzur }
                 }
@@ -113,7 +113,8 @@ private struct DyzurRow: View {
 
     private var weekdayName: String {
         let idx = WorkDaysEngine.calendar.component(.weekday, from: dyzur.date) - 1
-        return WorkDaysEngine.polishWeekdayNames[idx]
+        let names = WorkDaysEngine.polishWeekdayNames
+        return names.indices.contains(idx) ? names[idx] : ""
     }
 
     var body: some View {
