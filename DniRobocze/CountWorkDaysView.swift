@@ -20,9 +20,13 @@ struct CountWorkDaysView: View {
 
                 Section {
                     Button(action: calculate) {
-                        Label("Oblicz", systemImage: "equal.circle.fill")
-                            .frame(maxWidth: .infinity)
-                            .font(.headline)
+                        HStack {
+                            Spacer()
+                            Label("Oblicz", systemImage: "equal.circle.fill")
+                                .font(.headline)
+                            Spacer()
+                        }
+                        .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
                     .listRowBackground(Color.clear)
