@@ -17,6 +17,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Święta", systemImage: "star.fill")
                 }
+
+            DyzuryView()
+                .tabItem {
+                    Label("Dyżury", systemImage: "stethoscope")
+                }
         }
     }
 }
