@@ -18,6 +18,9 @@ xcuserdata/
 # Xcode Previews
 PreviewReplays/
 
+# Syncthing conflicts
+*.sync-conflict-*
+
 # macOS
 .DS_Store
 .AppleDouble
